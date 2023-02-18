@@ -50,9 +50,9 @@ export const signInWithGoogleRedirect = () =>
 export const db = getFirestore();
 
 export const createUserDocumentsFromAuth = async (
-  userAuth, 
+  userAuth,
   additionalInformation = {}
-  ) => {
+) => {
   if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid);
@@ -89,5 +89,3 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 
   return await createUserWithEmailAndPassword(auth, email, password);
 };
-
-
