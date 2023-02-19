@@ -8,8 +8,8 @@ import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
 import { UserContext } from '../../contexts/user.context';
 
 const Navigation = () => {
-  const {currentUser} = useContext(UserContext);
-  console.log(currentUser);
+  const { currentUser } = useContext(UserContext);
+ // console.log(currentUser);
 
   return (
     <Fragment>
