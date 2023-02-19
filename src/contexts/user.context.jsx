@@ -1,20 +1,5 @@
-// import { createContext, useState } from 'react';
-
-// // as the actual value you want to access
-// export const UserContext = createContext({
-//   currentUser: null,
-//   setCurrentUser: () => null,
-// });
-
-// export const UserProvider = ({ childern }) => {
-//   const [currentUser, setCurrentUser] = useState(null);
-//   const value = { currentUser, setCurrentUser };
-
-//   return <UserContext.Provider value={value}>{childern}</UserContext.Provider>;
-// };
-
-
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from 'react';
+import { onAuthStateChangedListner } from '../utils/firebase/firebase.utils';
 
 export const UserContext = createContext({
   setCurrentUser: () => null,
@@ -24,6 +9,15 @@ export const UserContext = createContext({
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const value = { currentUser, setCurrentUser };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListner((user) => {
+      console.log(user);
+     setCurrentUser(user);
+    });
+
+    return unsubscribe;
+  }, []);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
