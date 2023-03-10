@@ -95,11 +95,10 @@ export const signOutUser = async () => await signOut(auth);
 export const onAuthStateChangedListner = (callback) =>
   onAuthStateChanged(auth, callback);
 
-
-  /**
-   * 
-   * 
-   * 
-   * 
-   * 
-   */
+/**
+ *
+ *
+ *
+ *
+ *
+ */
