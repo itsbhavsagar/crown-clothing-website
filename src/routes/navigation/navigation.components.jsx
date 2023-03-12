@@ -11,7 +11,6 @@ import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-
   return (
     <Fragment>
       <div className="navigation">
